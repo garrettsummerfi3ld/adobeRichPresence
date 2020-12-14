@@ -5,7 +5,7 @@ import platform
 import sys
 import os.path as path
 
-appDict = {"photoshop", "lightroom", "after effects", "audition", "illustrator", "indesign", "incopy", "premiere pro"}
+appDict = {"photoshop", "lightroom", "after effects", "audition", "illustrator", "indesign", "incopy", "premiere pro", "afterfx"}
 
 def updateInfo():
     try:
@@ -40,6 +40,8 @@ def getAdobeProcess():
 def getIcon(process):
     for appName in appDict:
         if appName in process.name().lower():
+            if appName == "afterfx":
+                return "after effects".replace(" ","")
             return appName.replace(" ", "")
 
 def getStatus(pid):
